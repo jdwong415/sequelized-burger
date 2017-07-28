@@ -1,0 +1,70 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <h1 class="header">
+      <img src="/assets/images/burger.svg" height="60px" id="logo"> Burger Time
+    </h1>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3><strong>Your Order:</strong></h3>
+      <div class="list-group">
+        {{#each burgers}}
+          {{#unless this.devoured}}
+              <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
+                <button class="btn btn-primary button" class="list-group-item list-group-item-action" type="submit">
+                  <label for="eat">
+                    <h4 class="burger-name burger-uneaten">{{this.id}}. <img src="/assets/images/burger.svg" height="30px" class="sm-logo"> {{this.burger_name}}</h4>
+                  </label>
+                  <input type="hidden" name="eat" value="true">
+                </button>
+              </form>
+          {{/unless}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h3><strong>Eaten:</strong></h3>
+      <ul class="list-group">
+        {{#each burgers}}
+          {{#if this.devoured}}
+            <li class="list-group-item list-group-item-warning">
+              <h4 class="burger-name">{{this.id}}. {{this.burger_name}}</h4>
+              {{!-- For Testing  --}}
+              {{!-- <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
+                <label for="uneat">
+                  <h4>{{this.id}}. {{this.burger_name}}</h4>
+                </label>
+                <input type="hidden" name="uneat" value="false">
+                <button type="submit">UNEAT!</button>
+              </form> --}}
+            </li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <form action="/" method="POST">
+        <label for="name" class="burger-label">Burger Name:</label>
+        <div class="input-group">
+          <input class="form-control" type="text" id="name" name="name">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> Order</button>
+          </span>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-1"></div>
+    {{!-- Delete devoured burgers --}}
+     <div class="col-md-6">
+      <form action="/?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-primary btn-lg delete">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Throw Away Trash
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
