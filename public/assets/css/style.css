@@ -55,6 +55,23 @@
   margin-bottom: 5px;
 }
 
+.burger-list {
+  background-color: #BF0000;
+  color: white;
+  border: 1px solid #7F0000;
+}
+
+.eat {
+  background-color: #7F0000;
+  border: 1px solid #7F0000;
+}
+
+
+.eat-group {
+  float: right;
+  margin-top: 13px;
+}
+
 .sm-logo {
   margin-bottom: 10px;
 }
