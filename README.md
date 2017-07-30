@@ -1,12 +1,12 @@
-# Burger Time
-A restaurant app that lets users input the names of burgers they like to eat, using Node, Express, MySQL, Handlebars, and ORM, based on the MVC design pattern.
+# Burger Time (Sequelized Version)
+A restaurant app that lets users input the names of burgers they like to eat, using Node, Express, Sequelized, and Handlebars, based on the MVC design pattern.
 
 ## Prerequisites:
 * Node.js
 
 ## Installation
 
-* Download source code: `git clone https://github.com/jdwong415/burger.git`
+* Download source code: `git clone https://github.com/jdwong415/sequelized-burger.git`
 
 * Install modules: `npm install`
 
@@ -25,4 +25,4 @@ A restaurant app that lets users input the names of burgers they like to eat, us
 * Don't forget to throw away your trash when you've finished eating.
 
 ## Demo
-https://dry-waters-73607.herokuapp.com/
+https://limitless-earth-86443.herokuapp.com/
