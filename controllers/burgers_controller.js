@@ -7,7 +7,10 @@ var customer = db.customer;
 
 // Get all burgers
 router.get("/", function(req, res) {
-  burger.findAll({include: [customer]}).then(function(result) {
+  burger.findAll({
+    order: [["burger_name", "ASC"]],
+    include: [customer]
+  }).then(function(result) {
     res.render("index", {burgers: result});
   });
 });

@@ -15,7 +15,7 @@
               <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
                 <button class="btn btn-primary button" class="list-group-item list-group-item-action" type="submit">
                   <label for="eat">
-                    <h4 class="burger-name burger-uneaten">{{this.id}}. <img src="/assets/images/burger.svg" height="30px" class="sm-logo"> {{this.burger_name}}</h4>
+                    <h4 class="burger-name burger-uneaten"><img src="/assets/images/burger.svg" height="30px" class="sm-logo"> {{this.burger_name}}</h4>
                     <h5 class="order-text">Ordered by: {{this.customer.customer_name}}</h5>
                   </label>
                 </button>
@@ -30,7 +30,7 @@
         {{#each burgers}}
           {{#if this.devoured}}
             <li class="list-group-item list-group-item-warning">
-              <h4 class="burger-name">{{this.id}}. {{this.burger_name}} </h4>
+              <h4 class="burger-name">{{this.burger_name}} </h4>
               <h5 class="eaten-text">Ordered by: {{this.customer.customer_name}}</h5>
               {{!-- For Testing  --}}
               {{!-- <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
