@@ -44,11 +44,18 @@ router.put("/:id", function(req, res) {
 
 // Delete devoured burgers
 router.delete("/", function(req, res) {
-  burger.destroy({
+  burger.findAll({
     where: {
       devoured: true
     }
-  }).then(function() {
+  }).then(function(result) {
+    result.forEach(function(val) {
+      customer.destroy({
+        where: {
+          id: val.dataValues.customerId
+        }
+      });
+    });
     res.redirect("/");
   });
 });

@@ -1,5 +1,5 @@
-# Burger Time (Sequelized Version)
-A restaurant app that lets users input the names of burgers they like to eat, using Node, Express, Sequelized, and Handlebars, based on the MVC design pattern.
+# Burger Time (Sequelize Version)
+A restaurant app that lets users input the names of burgers they like to eat, using Node, Express, Sequelize, and Handlebars, based on the MVC design pattern.
 
 ## Prerequisites:
 * Node.js
