@@ -12,27 +12,14 @@
       <div class="list-group">
         {{#each burgers}}
           {{#unless this.devoured}}
-              {{!-- <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
+              <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
                 <button class="btn btn-primary button" class="list-group-item list-group-item-action" type="submit">
                   <label for="eat">
                     <h4 class="burger-name burger-uneaten">{{this.id}}. <img src="/assets/images/burger.svg" height="30px" class="sm-logo"> {{this.burger_name}}</h4>
+                    <h5 class="order-text">Ordered by: {{this.customer.customer_name}}</h5>
                   </label>
-                  <input type="hidden" name="eat" value="true">
                 </button>
-              </form> --}}
-            <li class="list-group-item burger-list">
-              <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
-                <label for="eat">
-                  <h4 class="burger-name burger-uneaten">{{this.id}}. <img src="/assets/images/burger.svg" height="30px" class="sm-logo"> {{this.burger_name}}</h4>
-                </label>
-                <div class="input-group eat-group">
-                  <input class="form-control eat-form" type="text" name="eat">
-                  <span class="input-group-btn">
-                    <button class="btn btn-primary button eat" type="submit">Eat</button>
-                  </span>
-                </div>
               </form>
-            </li>
           {{/unless}}
         {{/each}}
       </div>
@@ -43,7 +30,8 @@
         {{#each burgers}}
           {{#if this.devoured}}
             <li class="list-group-item list-group-item-warning">
-              <h4 class="burger-name">{{this.id}}. {{this.burger_name}}</h4>
+              <h4 class="burger-name">{{this.id}}. {{this.burger_name}} </h4>
+              <h5 class="eaten-text">Ordered by: {{this.customer.customer_name}}</h5>
               {{!-- For Testing  --}}
               {{!-- <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
                 <label for="uneat">
@@ -62,12 +50,17 @@
     <div class="col-md-5">
       <form action="/" method="POST">
         <label for="burger_name" class="burger-label">Burger Name:</label>
+        <input class="form-control" type="text" id="burger-name" name="burger_name">
+        <p class="validate" id="burger-validate">Please enter burger name.</p>
+        <br>
+        <label for="customer_name" class="burger-label">Your Name:</label>
         <div class="input-group">
-          <input class="form-control" type="text" id="burger_name" name="burger_name">
+          <input class="form-control" type="text" id="customer-name" name="customer_name">
           <span class="input-group-btn">
             <button class="btn btn-primary" type="submit" onClick="return empty()"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> Order</button>
           </span>
         </div>
+        <p class="validate" id="customer-validate">Please enter your name.</p>
       </form>
     </div>
     <div class="col-md-1"></div>
@@ -81,12 +74,30 @@
     </div>
   </div>
 </div>
+<footer>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script>
   // Prevent empty input
   function empty() {
-    var val = document.getElementById("burger_name").value;
-    if (val == "") {
-      return false;
-    };
+    var burger = $("#burger-name").val();
+    var customer = $("#customer-name").val();
+    var validate = true;
+
+    if (!burger) {
+      $("#burger-validate").show();
+      validate = false;
+    }
+    else if (burger) {
+      $("#burger-validate").hide();
+    }
+    if (!customer ) {
+      $("#customer-validate").show();
+      validate = false;
+    }
+    else if (customer) {
+      $("#customer-validate").hide();
+    }
+    return validate;
   }
 </script>
