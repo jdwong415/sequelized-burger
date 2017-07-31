@@ -18,6 +18,8 @@ A restaurant app that lets users input the names of burgers they like to eat, us
 
 * Input the name of the burger you'd like to eat. 
 
+* Input your name.
+
 * Click on the burger to eat it.
 
 * Enjoy your meal.
