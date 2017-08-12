@@ -29,4 +29,4 @@ A restaurant app that lets users input the names of burgers they like to eat, us
 ## Demo
 https://limitless-earth-86443.herokuapp.com/
 
-![Burger Time](./public/assets/images/ss.png)
+<img src="./public/assets/images/ss.png" width="500px">
